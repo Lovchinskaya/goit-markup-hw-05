@@ -414,14 +414,15 @@ ul {
     margin-right: 30px;
     margin-bottom: 30px;
     position: relative;
+    overflow: hidden;
+    
 }
 .cards-portfolio:hover {
     box-shadow:  0px 4px 6px 0px rgba(0, 0, 0, 0.12);
     cursor: pointer;
+ 
 }
-.backdrop-image {
 
-}
 .backdrop {
     position: absolute;
     width: 100%;
@@ -429,13 +430,14 @@ ul {
     background-color: rgba(33, 150, 243, 0.9);
     padding: 63px 24px;
     z-index: 1;
-    transition:  250ms ease;
+    transition-duration:  2000ms;
+    /*transform: translateY(0%);*/
 }
-.backdrop:hover {
-    transform: translateY(100%);
+ /*.card-portfolio:hover .backdrop {
+      transform: translateX(50%)
 
-}
-.backdrop-text {
+}*/
+.backdrop > p {
     font-size: 18px;
     line-height: 1.55;
     font-weight: 400px;
@@ -447,6 +449,7 @@ ul {
     padding-bottom: 20px;
     padding-left: 24px;
     padding-right: 20px;
+    overflow: hidden;
 }
 .cards-portfolio:nth-of-type(3n){
     margin-right: 0;
@@ -552,4 +555,23 @@ a.logo-footer {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+}
+.backdrop-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.modal {
+    width: 528px;
+    min-height: 581px;
+    background-color: var(--general-white-color);
+    position: absolute;
+    margin: auto;
+    border-radius: 4px;
+    top: 221px;
+    left: 40%;
+
 }
