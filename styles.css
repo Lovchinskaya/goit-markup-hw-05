@@ -417,21 +417,31 @@ ul {
     overflow: hidden;
     
 }
+.card-group {
+    position:relative;
+    
+}
 .cards-portfolio:hover {
     box-shadow:  0px 4px 6px 0px rgba(0, 0, 0, 0.12);
-    cursor: pointer;
- 
+    cursor: pointer; 
 }
-
+.backdrop-overlay {
+    overflow: hidden;
+}
+.backdrop-overlay:hover> .backdrop {
+    transform: translateY(-101%);
+    z-index: 1;
+}
 .backdrop {
     position: absolute;
     width: 100%;
     height: 294px;
     background-color: rgba(33, 150, 243, 0.9);
     padding: 63px 24px;
-    z-index: 1;
-    transition-duration:  2000ms;
-    /*transform: translateY(0%);*/
+    transform: translateY(0%);
+    transition-duration: 250ms;
+    z-index: 0;
+
 }
  /*.card-portfolio:hover .backdrop {
       transform: translateX(50%)
@@ -449,7 +459,8 @@ ul {
     padding-bottom: 20px;
     padding-left: 24px;
     padding-right: 20px;
-    overflow: hidden;
+
+
 }
 .cards-portfolio:nth-of-type(3n){
     margin-right: 0;
@@ -556,6 +567,7 @@ a.logo-footer {
     align-items: center;
     border-radius: 50%;
 }
+
 .backdrop-modal {
     position: fixed;
     top: 0;
@@ -563,15 +575,36 @@ a.logo-footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
+    transition: 250ms, visibility;
+
 }
 .modal {
     width: 528px;
     min-height: 581px;
     background-color: var(--general-white-color);
     position: absolute;
-    margin: auto;
     border-radius: 4px;
-    top: 221px;
-    left: 40%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+
+}
+.modal-close-button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 8px;
+    top: 8px;
+    background-color: var(--general-white-color);
+}
+.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
