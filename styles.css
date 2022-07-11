@@ -83,8 +83,7 @@ ul {
     letter-spacing: 0.02em;
     position: relative;
 }
-.nav-link:hover::after,
-.nav-link:focus::after {
+.nav-link::after{
     content: '';
     width: 100%;
     display: block;
@@ -92,8 +91,15 @@ ul {
     position: absolute;
     background-color: var(--blue-brand-color);
     top: 47px;
-
+    transition: 250ms;
+    transform: scalex(0);
 }
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+    transform: scalex(1);
+}
+
 .contacts-menu {
     display: flex;
     margin-left: auto;
@@ -106,6 +112,7 @@ ul {
     text-decoration: none;
     font-weight: 500;
     letter-spacing: 0.02em;
+    transition: 250ms;
 }
 .nav-menu > a:hover  {
     color: #2196F3;
@@ -248,7 +255,7 @@ ul {
     font-size: 14px;
     line-height: 1.17;
     letter-spacing: 0.03em;
-    font-weight: 700px;
+    font-weight: 700;
     color: var(--general-white-color);
     text-transform: uppercase;
 }
@@ -323,6 +330,8 @@ ul {
     height: 44px; 
     border-radius: 50%;
     margin-left: 10px;
+    transition: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
@@ -344,6 +353,7 @@ ul {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+
 }
 
 /*companies*/
@@ -364,6 +374,7 @@ ul {
     justify-content: center;
     align-items: center;
     fill: #AFB1B8;
+    transition: 250ms;
 }
 .brand-card:hover {
     border-color: var(--blue-brand-color);
@@ -400,6 +411,8 @@ ul {
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.03em;
     padding: 6px 22px;
+    transition: 250ms;
+
 }
 .filter-button>a :focus,
 .filter-button>a :hover{
@@ -441,6 +454,8 @@ ul {
     transform: translateY(0%);
     transition-duration: 250ms;
     visibility: hidden;
+    transition: 1250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
  /*.card-portfolio:hover .backdrop {
@@ -541,6 +556,7 @@ a.logo-footer {
     border-radius: 50%;
     margin-right: 10px;
     background-color: #44454E;
+    transition: 250ms;
 }
 .social-icon-footer {
     fill: var(--general-white-color);
