@@ -83,6 +83,10 @@ ul {
     letter-spacing: 0.02em;
     position: relative;
 }
+.nav-link:active::after{
+   visibility: visible;
+}
+
 .nav-link::after{
     content: '';
     width: 100%;
@@ -92,12 +96,14 @@ ul {
     background-color: var(--blue-brand-color);
     top: 47px;
     transition: 250ms;
-    transform: scalex(0);
-}
-
-.nav-link:hover::after,
-.nav-link:focus::after {
     transform: scalex(1);
+    visibility: hidden;
+
+}
+.nav-link:focus::after,
+.nav-link:hover::after {
+    transform: scalex(1);
+    visibility: visible;
 }
 
 .contacts-menu {
@@ -331,17 +337,21 @@ ul {
     border-radius: 50%;
     margin-left: 10px;
     transition: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
 }
 
 .social-icon {
     fill: #AFB1B8;
+    transition: 250ms;
 }
 .social-link:focus,
 .social-link:focus .social-icon,
-.social-cover:hover,
-.social-cover:hover .social-icon
-{
+.social-cover:hover .social-icon {
+    fill: var(--general-white-color);
+    cursor: pointer;
+}
+
+.social-cover:hover {
     fill: var(--general-white-color);
     background-color:#2196F3;
     cursor: pointer;
@@ -353,6 +363,8 @@ ul {
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    transition: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -451,17 +463,12 @@ ul {
     height: 294px;
     background-color: rgba(33, 150, 243, 0.9);
     padding: 63px 24px;
-    transform: translateY(0%);
-    transition-duration: 250ms;
     visibility: hidden;
-    transition: 1250ms;
+    transition: 250ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
- /*.card-portfolio:hover .backdrop {
-      transform: translateX(50%)
 
-}*/
 .backdrop > p {
     font-size: 18px;
     line-height: 1.55;
@@ -592,7 +599,7 @@ a.logo-footer {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.2);
-    transition: 250ms, visibility;
+    transition: 250ms;
 
 }
 .modal {
