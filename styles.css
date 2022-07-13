@@ -26,6 +26,7 @@ ul {
     --text-color-bold: #212121;
     --blue-brand-color: #2196F3;
     --border-color: #F5F4FA;
+    --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -75,48 +76,72 @@ ul {
 .nav-menu {
     margin-right: 50px;
 }
-.nav-menu > a {
+.nav-link {
     color: var(--text-color-bold);
     text-decoration: none;   
     font-weight: 500;
     line-height: 1.1;
     letter-spacing: 0.02em;
     position: relative;
+    transition: 250ms var(--timing-function);
 }
-.nav-link:focus::after,
-.nav-link:hover::after {
-    transform: scalex(1);
+.nav-link:hover::after{
+    content: '';
+    width: 100%;
+    display: block;
+    height: 4px;
+    position: absolute;
+    background-color: var(--blue-brand-color);
+    top: 47px;
+    border-radius: 4px;
+}
+.nav-link::after {
+    content: '';
+    width: 100%;
+    display: block;
+    height: 4px;
+    position: absolute;
+    top: 47px;
+    border-radius: 4px;
+    transition: 250ms var(--timing-function);
+}
+
+.nav-link:hover,
+.nav-link:focus,
+a.nav-link.current {
+    color: #2196F3;
+}
+.nav-link.current::after{
+    content: '';
+    width: 100%;
+    display: block;
+    height: 4px;
+    position: absolute;
+    background-color: var(--blue-brand-color);
+    top: 47px;
+    border-radius: 4px;
+}
+/*.current::after {
+    content: '';
+    position: absolute;
+    top: 47px;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: var(--blue-brand-color);
     visibility: visible;
-}
-.nav-menu .current {
-    position: relative;
+    display: block;
+   
+}*/
+/*.nav-menu > .current {
     color: var(--blue-brand-color);
-}
-.current::before {
-    content: '';
-    width: 100%;
-    display: block;
-    height: 4px;
-    position: absolute;
-    background-color: var(--blue-brand-color);
-    top: 47px;
+}*/
+
+/*.nav-link:focus::after,
+.nav-link:hover::after {
     visibility: visible;
-}
 
-.nav-link::after{
-    content: '';
-    width: 100%;
-    display: block;
-    height: 4px;
-    position: absolute;
-    background-color: var(--blue-brand-color);
-    top: 47px;
-    transition: 250ms;
-    transform: scalex(0);
-    visibility: hidden;
-
-}
-
+}*/
 
 .contacts-menu {
     display: flex;
@@ -132,12 +157,7 @@ ul {
     letter-spacing: 0.02em;
     transition: 250ms;
 }
-.nav-menu > a:hover  {
-    color: #2196F3;
-}
-.nav-menu> a:focus  {
-    color: #2196F3;
-}
+
 .nav-menu-contact > a:hover,
 .nav-menu-contact > a:focus
 {
@@ -261,12 +281,13 @@ ul {
     gap: 30px;
 }
 .card-images-description {
+    width: 100%;
     display: flex;
     justify-content: center;
     background-color: rgba(47, 48, 58, 0.8);
     height: 70px;
-    position: relative;
-    bottom: 20%;
+    position: absolute;
+    bottom: 1%;
     align-items: center;
 }
 .card-text {
